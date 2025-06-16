@@ -1,3 +1,4 @@
+import 'package:auvnet/features/auth/presentation/widgets/sign_up_view_body.dart';
 import 'package:flutter/material.dart';
 
 class SignUpView extends StatelessWidget {
@@ -6,6 +7,6 @@ class SignUpView extends StatelessWidget {
   static const routeName = 'sign-up';
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold(body: SignUpViewBody());
   }
 }
