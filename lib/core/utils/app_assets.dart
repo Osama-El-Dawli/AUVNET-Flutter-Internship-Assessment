@@ -3,8 +3,12 @@ class Assets {
   Assets._();
   
   /// Assets for imagesLogo
-  /// assets/images/logo.svg
-  static const String imagesLogo = "assets/images/logo.svg";
+  /// assets/images/logo.png
+  static const String imagesLogo = "assets/images/logo.png";
+
+  /// Assets for imagesNativeSplash
+  /// assets/images/native_splash.png
+  static const String imagesNativeSplash = "assets/images/native_splash.png";
 
   /// Assets for imagesOnBoardingCircle
   /// assets/images/on_boarding_circle.svg
