@@ -13,5 +13,9 @@ class Assets {
   /// Assets for imagesOnBoardingCircle
   /// assets/images/on_boarding_circle.svg
   static const String imagesOnBoardingCircle = "assets/images/on_boarding_circle.svg";
+
+  /// Assets for imagesOnBoardingFooter
+  /// assets/images/on_boarding_footer.png
+  static const String imagesOnBoardingFooter = "assets/images/on_boarding_footer.png";
 }
 

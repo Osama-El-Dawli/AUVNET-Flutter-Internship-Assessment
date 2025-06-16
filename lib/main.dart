@@ -1,4 +1,5 @@
 import 'package:auvnet/core/routes/on_generate_route.dart';
+import 'package:auvnet/core/utils/app_colors.dart';
 import 'package:auvnet/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,10 @@ class Nawel extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Nawel',
-      theme: ThemeData(scaffoldBackgroundColor: Colors.white),
+      theme: ThemeData(
+        primaryColor: AppColors.primaryColor,
+        scaffoldBackgroundColor: Colors.white,
+      ),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
       initialRoute: SplashView.routeName,
