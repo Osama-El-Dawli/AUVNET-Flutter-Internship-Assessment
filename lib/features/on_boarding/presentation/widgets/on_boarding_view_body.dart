@@ -1,9 +1,11 @@
 import 'package:auvnet/core/utils/app_assets.dart';
+import 'package:auvnet/core/utils/app_constants.dart';
 import 'package:auvnet/core/utils/app_text_styles.dart';
 import 'package:auvnet/core/widgets/custom_button.dart';
 import 'package:auvnet/features/auth/presentation/views/login_view.dart';
 import 'package:auvnet/features/on_boarding/presentation/widgets/on_boarding_page_view.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 
 class OnBoardingViewBody extends StatefulWidget {
   const OnBoardingViewBody({super.key});
@@ -15,6 +17,7 @@ class OnBoardingViewBody extends StatefulWidget {
 class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
+  final hiveBox = Hive.box(AppConstants.hiveBox);
 
   void nextPage() {
     _currentPage++;
@@ -65,6 +68,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                   CustomButton(
                     text: 'Get Started',
                     onPressed: () {
+                      hiveBox.put(AppConstants.isOnBoardingVisited, true);
                       Navigator.pushReplacementNamed(
                         context,
                         LoginView.routeName,
@@ -81,6 +85,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                       if (_currentPage < 2) {
                         nextPage();
                       } else {
+                        hiveBox.put(AppConstants.isOnBoardingVisited, true);
                         Navigator.pushReplacementNamed(
                           context,
                           LoginView.routeName,
