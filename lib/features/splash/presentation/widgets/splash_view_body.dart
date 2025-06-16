@@ -1,3 +1,4 @@
+import 'package:auvnet/core/utils/app_assets.dart';
 import 'package:flutter/material.dart';
 
 class SplashViewBody extends StatelessWidget {
@@ -5,6 +6,6 @@ class SplashViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Center(child: Image.asset(Assets.imagesLogo));
   }
 }
