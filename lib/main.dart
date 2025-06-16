@@ -3,16 +3,16 @@ import 'package:auvnet/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const ECommerce());
+  runApp(const Nawel());
 }
 
-class ECommerce extends StatelessWidget {
-  const ECommerce({super.key});
+class Nawel extends StatelessWidget {
+  const Nawel({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'AUVNet E-Commerce',
+      title: 'Nawel',
       theme: ThemeData(scaffoldBackgroundColor: Colors.white),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
