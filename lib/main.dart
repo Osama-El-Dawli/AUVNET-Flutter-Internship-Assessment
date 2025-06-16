@@ -2,11 +2,14 @@ import 'package:auvnet/core/routes/on_generate_route.dart';
 import 'package:auvnet/core/utils/app_colors.dart';
 import 'package:auvnet/core/utils/app_constants.dart';
 import 'package:auvnet/features/splash/presentation/views/splash_view.dart';
+import 'package:auvnet/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await Hive.initFlutter();
   await Hive.openBox(AppConstants.hiveBox);
   runApp(const Nawel());
