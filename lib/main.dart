@@ -15,7 +15,9 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   setupGetIt();
   await Hive.initFlutter();
-  await Hive.openBox(AppConstants.hiveBox);
+  await Hive.openBox(AppConstants.settingsBox);
+  await Hive.openBox(AppConstants.authBox);
+
   Bloc.observer = CustomBlocObserver();
   runApp(const Nawel());
 }
