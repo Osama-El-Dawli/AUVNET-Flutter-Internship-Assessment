@@ -1,19 +1,20 @@
+import 'package:auvnet/core/functions/extract_user_name.dart';
 import 'package:auvnet/core/utils/app_text_styles.dart';
 import 'package:auvnet/core/widgets/custom_button.dart';
 import 'package:auvnet/core/widgets/custom_password_field.dart';
 import 'package:auvnet/core/widgets/custom_text_form_field.dart';
-import 'package:auvnet/features/auth/presentation/blocs/login_bloc/login_bloc.dart';
+import 'package:auvnet/features/auth/presentation/blocs/sign_up_bloc/sign_up_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LoginViewForm extends StatefulWidget {
-  const LoginViewForm({super.key});
+class SignUpViewForm extends StatefulWidget {
+  const SignUpViewForm({super.key});
 
   @override
-  State<LoginViewForm> createState() => _LoginViewFormState();
+  State<SignUpViewForm> createState() => _SignUpViewFormState();
 }
 
-class _LoginViewFormState extends State<LoginViewForm> {
+class _SignUpViewFormState extends State<SignUpViewForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -35,46 +36,52 @@ class _LoginViewFormState extends State<LoginViewForm> {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: CustomTextFormField(
               controller: _emailController,
+              onSaved: (value) {
+                _emailController.text = value!;
+              },
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter your email';
                 }
-                final emailPattern = RegExp(
-                  r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
-                );
-                if (!emailPattern.hasMatch(value)) {
-                  return 'Please enter a valid email address';
-                }
                 return null;
-              },
-              onSaved: (value) {
-                _emailController.text = value!;
               },
               textInputType: TextInputType.emailAddress,
               text: 'mail',
               prefixIcon: Icons.mail_outline,
             ),
           ),
-          const SizedBox(height: 18),
+          const SizedBox(height: 8),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: CustomPasswordField(controller: _passwordController),
+          ),
+          const SizedBox(height: 8),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: CustomPasswordField(
-              controller: _passwordController,
-              onSaved: (value) {
-                _passwordController.text = value!;
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please confirm your password';
+                }
+                if (value != _passwordController.text) {
+                  return 'Passwords do not match';
+                }
+                return null;
               },
             ),
           ),
-          const SizedBox(height: 26),
+          const SizedBox(height: 18),
           CustomButton(
-            text: 'Log in',
+            text: 'Sign up',
             textStyle: AppTextStyles.medium14.copyWith(color: Colors.white),
             onPressed: () {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
-                context.read<LoginBloc>().add(
-                  LoginSubmitEvent(
-                    email: _emailController.text.trim(),
+                // Trigger the sign-up event
+                context.read<SignUpBloc>().add(
+                  SignUpSubmitEvent(
+                    name: extractUserName(_emailController.text.trim()),
+                    mail: _emailController.text.trim(),
                     password: _passwordController.text,
                   ),
                 );

@@ -17,7 +17,7 @@ class OnBoardingViewBody extends StatefulWidget {
 class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
-  final hiveBox = Hive.box(AppConstants.hiveBox);
+  final hiveBox = Hive.box(AppConstants.settingsBox);
 
   void nextPage() {
     _currentPage++;

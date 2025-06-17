@@ -1,32 +1,30 @@
 import 'package:auvnet/core/functions/flutter_toast.dart';
 import 'package:auvnet/core/utils/app_assets.dart';
 import 'package:auvnet/core/utils/app_text_styles.dart';
-import 'package:auvnet/features/auth/presentation/blocs/login_bloc/login_bloc.dart';
-import 'package:auvnet/features/auth/presentation/views/sign_up_view.dart';
-import 'package:auvnet/features/auth/presentation/widgets/login_view_form.dart';
-import 'package:auvnet/features/home/presentation/views/home_view.dart';
+import 'package:auvnet/features/auth/presentation/blocs/sign_up_bloc/sign_up_bloc.dart';
+import 'package:auvnet/features/auth/presentation/widgets/sign_up_view_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-class LoginViewBody extends StatelessWidget {
-  const LoginViewBody({super.key});
+class SignUpViewBody extends StatelessWidget {
+  const SignUpViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LoginBloc, LoginState>(
+    return BlocConsumer<SignUpBloc, SignUpState>(
       listener: (context, state) {
-        if (state is LoginSuccess) {
-          flutterToast(msg: 'Login successful');
-          Navigator.pushReplacementNamed(context, HomeView.routeName);
+        if (state is SignUpSuccess) {
+          flutterToast(msg: 'Sign up successful');
+          Navigator.pop(context);
         }
-        if (state is LoginFailure) {
+        if (state is SignUpFailure) {
           flutterToast(msg: state.errorMessage);
         }
       },
       builder: (context, state) {
         return ModalProgressHUD(
-          inAsyncCall: state is LoginLoading,
+          inAsyncCall: state is SignUpLoading,
           child: Center(
             child: SingleChildScrollView(
               child: Padding(
@@ -35,8 +33,8 @@ class LoginViewBody extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(Assets.imagesLogo),
-                    const LoginViewForm(),
-                    const SizedBox(height: 16),
+                    const SignUpViewForm(),
+                    const SizedBox(height: 13),
                     TextButton(
                       style: TextButton.styleFrom(
                         visualDensity: VisualDensity(
@@ -44,10 +42,10 @@ class LoginViewBody extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, SignUpView.routeName);
+                        Navigator.pop(context);
                       },
                       child: Text(
-                        'Create an account',
+                        'Have an account',
                         style: AppTextStyles.bold14.copyWith(
                           color: Color(0xff1877F2),
                         ),
