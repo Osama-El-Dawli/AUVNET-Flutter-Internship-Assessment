@@ -10,8 +10,8 @@ part 'sign_up_state.dart';
 class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   final AuthRepo authRepo;
   SignUpBloc(this.authRepo) : super(SignUpInitial()) {
-    on<SignUpSubmitEvent>((event, emit) {
-      _signUp;
+    on<SignUpSubmitEvent>((event, emit) async {
+      await _signUp(event, emit);
     });
   }
 

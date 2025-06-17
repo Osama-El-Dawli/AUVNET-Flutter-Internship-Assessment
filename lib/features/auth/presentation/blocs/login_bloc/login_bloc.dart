@@ -9,8 +9,8 @@ part 'login_state.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final AuthRepo authRepo;
   LoginBloc(this.authRepo) : super(LoginInitial()) {
-    on<LoginSubmitEvent>((event, emit) {
-      _login;
+    on<LoginSubmitEvent>((event, emit) async {
+      await _login(event, emit);
     });
   }
   Future<void> _login(LoginSubmitEvent event, Emitter<LoginState> emit) async {

@@ -23,7 +23,7 @@ class LoginViewForm extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: CustomTextFormField(
-              isPassword: true,
+              obscureText: true,
               textInputType: TextInputType.visiblePassword,
               text: 'password',
               prefixIcon: Icons.lock_outline,
