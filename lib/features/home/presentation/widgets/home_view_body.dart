@@ -1,5 +1,6 @@
 import 'package:auvnet/features/home/presentation/widgets/home_header.dart';
-import 'package:auvnet/features/home/presentation/widgets/home_services.dart';
+import 'package:auvnet/features/home/presentation/widgets/home_services_section.dart';
+import 'package:auvnet/features/home/presentation/widgets/home_shortcuts_section.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -7,13 +8,20 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const HomeHeader(),
-        const SizedBox(height: 8),
-        const HomeServices(),
-        const SizedBox(height: 20),
+    return CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const HomeHeader(),
+              const SizedBox(height: 8),
+              const HomeServicesSection(),
+              const SizedBox(height: 14),
+              const HomeShortcutsSection(),
+            ],
+          ),
+        ),
       ],
     );
   }

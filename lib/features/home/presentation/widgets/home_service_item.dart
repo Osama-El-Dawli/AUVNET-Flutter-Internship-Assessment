@@ -1,11 +1,11 @@
 import 'package:auvnet/core/utils/app_colors.dart';
 import 'package:auvnet/core/utils/app_text_styles.dart';
-import 'package:auvnet/features/home/domain/service_item_entity.dart';
+import 'package:auvnet/features/home/domain/home_service_item_entity.dart';
 import 'package:flutter/material.dart';
 
-class ServicesItem extends StatelessWidget {
-  const ServicesItem({super.key, required this.serviceItemEntity});
-  final ServiceItemEntity serviceItemEntity;
+class HomeServicesItem extends StatelessWidget {
+  const HomeServicesItem({super.key, required this.serviceItemEntity});
+  final HomeServiceItemEntity serviceItemEntity;
 
   @override
   Widget build(BuildContext context) {

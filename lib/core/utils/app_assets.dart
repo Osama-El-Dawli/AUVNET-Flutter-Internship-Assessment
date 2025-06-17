@@ -2,6 +2,10 @@
 class Assets {
   Assets._();
   
+  /// Assets for imagesGetCode
+  /// assets/images/get_code.svg
+  static const String imagesGetCode = "assets/images/get_code.svg";
+
   /// Assets for imagesHomeAvatar
   /// assets/images/home_avatar.png
   static const String imagesHomeAvatar = "assets/images/home_avatar.png";
@@ -22,6 +26,10 @@ class Assets {
   /// assets/images/on_boarding_footer.png
   static const String imagesOnBoardingFooter = "assets/images/on_boarding_footer.png";
 
+  /// Assets for imagesPastOrders
+  /// assets/images/past_orders.svg
+  static const String imagesPastOrders = "assets/images/past_orders.svg";
+
   /// Assets for imagesServiceItem1
   /// assets/images/service_item1.png
   static const String imagesServiceItem1 = "assets/images/service_item1.png";
@@ -33,5 +41,9 @@ class Assets {
   /// Assets for imagesServiceItem3
   /// assets/images/service_item3.png
   static const String imagesServiceItem3 = "assets/images/service_item3.png";
+
+  /// Assets for imagesShortcutPageView
+  /// assets/images/shortcut_page_view.png
+  static const String imagesShortcutPageView = "assets/images/shortcut_page_view.png";
 }
 
