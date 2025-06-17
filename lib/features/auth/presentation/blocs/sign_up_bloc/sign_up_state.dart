@@ -13,7 +13,7 @@ final class SignUpLoading extends SignUpState {}
 
 final class SignUpSuccess extends SignUpState {
   final UserEntity user;
-  const SignUpSuccess(this.user);
+  const SignUpSuccess({required this.user});
   @override
   List<Object> get props => [user];
 }
