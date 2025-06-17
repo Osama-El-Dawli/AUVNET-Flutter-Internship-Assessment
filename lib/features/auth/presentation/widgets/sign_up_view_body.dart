@@ -24,7 +24,7 @@ class SignUpViewBody extends StatelessWidget {
       },
       builder: (context, state) {
         return ModalProgressHUD(
-          inAsyncCall: state is SignUpLoading ? true : false,
+          inAsyncCall: state is SignUpLoading,
           child: Center(
             child: SingleChildScrollView(
               child: Padding(

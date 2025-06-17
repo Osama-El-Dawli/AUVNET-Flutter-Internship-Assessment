@@ -76,6 +76,7 @@ class _SignUpViewFormState extends State<SignUpViewForm> {
             textStyle: AppTextStyles.medium14.copyWith(color: Colors.white),
             onPressed: () {
               if (_formKey.currentState!.validate()) {
+                _formKey.currentState!.save();
                 // Trigger the sign-up event
                 context.read<SignUpBloc>().add(
                   SignUpSubmitEvent(

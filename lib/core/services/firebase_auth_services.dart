@@ -37,14 +37,16 @@ class FirebaseAuthServices {
         );
       } else {
         throw CustomException(
-          message: 'An unexpected error occurred: ${e.message}',
+          message: 'An unexpected error occurred please try again later.',
         );
       }
     } catch (e) {
       log(
         'Unexpected error in FirebaseAuthServices.createUserWithEmailAndPassword: ${e.toString()}',
       );
-      throw CustomException(message: 'An unexpected error occurred: $e');
+      throw CustomException(
+        message: 'An unexpected error occurred please try again later.',
+      );
     }
   }
 
@@ -65,6 +67,8 @@ class FirebaseAuthServices {
         throw CustomException(
           message: 'Wrong password provided for that user.',
         );
+      } else if (e.code == 'invalid-credential') {
+        throw CustomException(message: 'Email or password is invalid.');
       } else if (e.code == 'invalid-email') {
         throw CustomException(message: 'The email address is not valid.');
       } else if (e.code == 'operation-not-allowed') {
@@ -82,18 +86,17 @@ class FirebaseAuthServices {
           message: 'Too many requests. Please try again later.',
         );
       } else {
-        log(
-          'Unexpected error in FirebaseAuthServices.signInWithEmailAndPassword: ${e.toString()}',
-        );
         throw CustomException(
-          message: 'An unexpected error occurred: ${e.message}',
+          message: 'An unexpected error occurred please try again later.',
         );
       }
     } catch (e) {
       log(
         'Unexpected error in FirebaseAuthServices.signInWithEmailAndPassword: ${e.toString()}',
       );
-      throw CustomException(message: 'An unexpected error occurred: $e');
+      throw CustomException(
+        message: 'An unexpected error occurred: please try again later.',
+      );
     }
   }
 }
