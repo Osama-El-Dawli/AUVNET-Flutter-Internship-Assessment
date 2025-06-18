@@ -1,3 +1,4 @@
+import 'package:auvnet/features/auth/domain/entities/user_entity.dart';
 import 'package:auvnet/features/home/presentation/widgets/home_header.dart';
 import 'package:auvnet/features/home/presentation/widgets/home_popular_section.dart';
 import 'package:auvnet/features/home/presentation/widgets/home_services_section.dart';
@@ -5,7 +6,8 @@ import 'package:auvnet/features/home/presentation/widgets/home_shortcuts_section
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
+  const HomeViewBody({super.key, required this.userEntity});
+  final UserEntity userEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,7 @@ class HomeViewBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const HomeHeader(),
+              HomeHeader(userEntity: userEntity),
               const SizedBox(height: 8),
               const HomeServicesSection(),
               const SizedBox(height: 14),

@@ -1,3 +1,4 @@
+import 'package:auvnet/features/auth/domain/entities/user_entity.dart';
 import 'package:auvnet/features/auth/presentation/views/login_view.dart';
 import 'package:auvnet/features/auth/presentation/views/sign_up_view.dart';
 import 'package:auvnet/features/home/presentation/views/home_view.dart';
@@ -20,7 +21,8 @@ Route onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => const SignUpView());
 
     case HomeView.routeName:
-      return MaterialPageRoute(builder: (_) => const HomeView());
+    final user = settings.arguments as UserEntity;
+      return MaterialPageRoute(builder: (_) => HomeView(userEntity: user,));
 
     default:
       return MaterialPageRoute(

@@ -1,3 +1,4 @@
+import 'package:auvnet/features/auth/domain/entities/user_entity.dart';
 import 'package:auvnet/features/home/presentation/views/cart_view.dart';
 import 'package:auvnet/features/home/presentation/views/categories_view.dart';
 import 'package:auvnet/features/home/presentation/views/deliver_view.dart';
@@ -7,7 +8,8 @@ import 'package:auvnet/features/home/presentation/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
-  const HomeView({super.key});
+  const HomeView({super.key, required this.userEntity});
+  final UserEntity userEntity;
   static const String routeName = 'homeView';
 
   @override
@@ -48,12 +50,12 @@ class _HomeViewState extends State<HomeView> {
       ),
       body: PageView(
         controller: _pageController,
-        children: const [
-          HomeViewBody(),
-          CategoriesView(),
-          DeliverView(),
-          CartView(),
-          ProfileView(),
+        children: [
+          HomeViewBody(userEntity: widget.userEntity),
+          const CategoriesView(),
+          const DeliverView(),
+          const CartView(),
+          const ProfileView(),
         ],
       ),
     );

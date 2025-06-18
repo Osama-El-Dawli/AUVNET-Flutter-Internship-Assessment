@@ -1,10 +1,12 @@
 import 'package:auvnet/core/utils/app_assets.dart';
 import 'package:auvnet/core/utils/app_colors.dart';
 import 'package:auvnet/core/utils/app_text_styles.dart';
+import 'package:auvnet/features/auth/domain/entities/user_entity.dart';
 import 'package:flutter/material.dart';
 
 class HomeHeader extends StatelessWidget {
-  const HomeHeader({super.key});
+  const HomeHeader({super.key, required this.userEntity});
+  final UserEntity userEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,7 @@ class HomeHeader extends StatelessWidget {
                   style: AppTextStyles.bold16,
                 ),
                 subtitle: Text(
-                  'Hi hepa!',
+                  'Hi ${userEntity.name}!',
                   style: AppTextStyles.bold30.copyWith(color: Colors.white),
                 ),
                 trailing: CircleAvatar(
