@@ -10,14 +10,14 @@ class HomeShortcutsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
-      child: const Column(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Shortcuts:', style: AppTextStyles.bold20),
-          SizedBox(height: 20),
+          const Text('Shortcuts:', style: AppTextStyles.bold20),
+          const SizedBox(height: 20),
           HomeShortcutsListView(),
-          SizedBox(height: 32,),
-          HomeShortcutsPageView(),
+          const SizedBox(height: 20),
+          const HomeShortcutsPageView(),
         ],
       ),
     );

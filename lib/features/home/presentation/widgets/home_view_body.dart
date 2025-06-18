@@ -1,4 +1,5 @@
 import 'package:auvnet/features/home/presentation/widgets/home_header.dart';
+import 'package:auvnet/features/home/presentation/widgets/home_popular_section.dart';
 import 'package:auvnet/features/home/presentation/widgets/home_services_section.dart';
 import 'package:auvnet/features/home/presentation/widgets/home_shortcuts_section.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,9 @@ class HomeViewBody extends StatelessWidget {
               const HomeServicesSection(),
               const SizedBox(height: 14),
               const HomeShortcutsSection(),
+              const SizedBox(height: 34),
+              const HomePopularSection(),
+              const SizedBox(height: 66),
             ],
           ),
         ),

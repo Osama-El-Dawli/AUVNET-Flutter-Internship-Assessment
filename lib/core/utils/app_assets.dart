@@ -30,6 +30,10 @@ class Assets {
   /// assets/images/past_orders.svg
   static const String imagesPastOrders = "assets/images/past_orders.svg";
 
+  /// Assets for imagesPopular
+  /// assets/images/popular.png
+  static const String imagesPopular = "assets/images/popular.png";
+
   /// Assets for imagesServiceItem1
   /// assets/images/service_item1.png
   static const String imagesServiceItem1 = "assets/images/service_item1.png";
