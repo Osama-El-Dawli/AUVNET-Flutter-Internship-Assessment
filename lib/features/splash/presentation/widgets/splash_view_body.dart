@@ -1,5 +1,6 @@
 import 'package:auvnet/core/utils/app_assets.dart';
 import 'package:auvnet/core/utils/app_constants.dart' show AppConstants;
+import 'package:auvnet/features/auth/data/model/user_model.dart';
 import 'package:auvnet/features/auth/presentation/views/login_view.dart';
 import 'package:auvnet/features/home/presentation/views/home_view.dart';
 import 'package:auvnet/features/on_boarding/presentation/views/on_boarding_view.dart';
@@ -26,6 +27,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     final settingBox = Hive.box(AppConstants.settingsBox);
     final authBox = Hive.box(AppConstants.authBox);
     final token = authBox.get(AppConstants.token);
+    final userData = authBox.get(AppConstants.userData);
     final isVisited = settingBox.get(
       AppConstants.isOnBoardingVisited,
       defaultValue: false,
@@ -33,7 +35,11 @@ class _SplashViewBodyState extends State<SplashViewBody> {
 
     if (!mounted) return;
     if (token != null && token.toString().isNotEmpty) {
-      Navigator.pushReplacementNamed(context, HomeView.routeName);
+      Navigator.pushReplacementNamed(
+        context,
+        HomeView.routeName,
+        arguments: UserModel.fromMap(Map<String, dynamic>.from(userData)),
+      );
     } else if (isVisited) {
       Navigator.pushReplacementNamed(context, LoginView.routeName);
     } else {

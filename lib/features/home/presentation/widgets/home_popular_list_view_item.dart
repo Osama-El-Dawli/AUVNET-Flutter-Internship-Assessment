@@ -1,3 +1,4 @@
+import 'package:auvnet/core/utils/app_assets.dart';
 import 'package:auvnet/core/utils/app_text_styles.dart';
 import 'package:auvnet/features/home/domain/entities/home_popular_item_entity.dart';
 import 'package:flutter/material.dart';
@@ -19,16 +20,23 @@ class HomePopularListViewItem extends StatelessWidget {
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 8.0),
-            child: Center(child: Image.asset(popularItemEntity.image)),
+            child: Center(
+              child: popularItemEntity.image.isNotEmpty
+                  ? Image.network(popularItemEntity.image)
+                  : Image.asset(Assets.imagesPopular),
+            ),
           ),
         ),
         const SizedBox(height: 8),
-        Text(
-          popularItemEntity.name,
-          textAlign: TextAlign.center,
-          maxLines: 2,
-          overflow: TextOverflow.ellipsis,
-          style: AppTextStyles.medium12,
+        SizedBox(
+          width: 80,
+          child: Text(
+            popularItemEntity.name,
+            textAlign: TextAlign.center,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: AppTextStyles.medium12,
+          ),
         ),
         const SizedBox(height: 4),
         Row(

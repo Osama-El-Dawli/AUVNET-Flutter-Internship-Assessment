@@ -21,7 +21,7 @@ class HomeShortcutsListViewItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
             color: Color(0xffFFEEE6),
           ),
-          child: Center(child: SvgPicture.asset(shortcutItemEntity.image)),
+          child: Center(child: SvgPicture.network(shortcutItemEntity.image)),
         ),
         const SizedBox(height: 8),
         SizedBox(

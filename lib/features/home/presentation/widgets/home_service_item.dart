@@ -1,3 +1,4 @@
+import 'package:auvnet/core/utils/app_assets.dart';
 import 'package:auvnet/core/utils/app_colors.dart';
 import 'package:auvnet/core/utils/app_text_styles.dart';
 import 'package:auvnet/features/home/domain/entities/home_service_item_entity.dart';
@@ -18,7 +19,9 @@ class HomeServicesItem extends StatelessWidget {
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
-            child: Image.asset(serviceItemEntity.image),
+            child: serviceItemEntity.image.isNotEmpty
+                ? Image.network(serviceItemEntity.image)
+                : Image.asset(Assets.imagesServiceItem1),
           ),
         ),
         Container(

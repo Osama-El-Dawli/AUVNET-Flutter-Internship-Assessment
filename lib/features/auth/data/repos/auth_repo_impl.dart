@@ -85,7 +85,9 @@ class AuthRepoImpl implements AuthRepo {
         },
       );
 
-      if (userModel == null) {
+      if (userModel != null) {
+        Hive.box(AppConstants.authBox).put(AppConstants.userData, userModel.toMap());
+      } else {
         Hive.box(AppConstants.authBox).delete(AppConstants.token);
       }
 
