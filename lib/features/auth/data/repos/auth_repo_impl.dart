@@ -9,6 +9,7 @@ import 'package:auvnet/core/utils/end_points.dart';
 import 'package:auvnet/features/auth/data/model/user_model.dart';
 import 'package:auvnet/features/auth/domain/entities/user_entity.dart';
 import 'package:auvnet/features/auth/domain/repos/auth_repo.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:hive_flutter/adapters.dart';
@@ -37,6 +38,7 @@ class AuthRepoImpl implements AuthRepo {
       try {
         await _firestoreServices.addData(
           path: EndPoints.userCollection,
+          docId: user.uid,
           data: {'uid': user.uid, 'email': email, 'name': name},
         );
       } catch (e) {
@@ -75,7 +77,21 @@ class AuthRepoImpl implements AuthRepo {
       final token = await user.getIdToken();
       await Hive.box(AppConstants.authBox).put(AppConstants.token, token);
 
-      return left(UserModel.fromFirebaseUser(user));
+      final userModel = await _firestoreServices.getData<UserModel>(
+        path: '${EndPoints.userCollection}/${user.uid}',
+        fromResponse: (docSnapshot) {
+          final doc = docSnapshot as DocumentSnapshot;
+          return UserModel.fromMap(doc.data() as Map<String, dynamic>);
+        },
+      );
+
+      if (userModel != null) {
+        Hive.box(AppConstants.authBox).put(AppConstants.userData, userModel.toMap());
+      } else {
+        Hive.box(AppConstants.authBox).delete(AppConstants.token);
+      }
+
+      return left(userModel!);
     } on CustomException catch (e) {
       log(
         'Exception in AuthRepoImpl.signInWithEmailAndPassword: ${e.toString()}',

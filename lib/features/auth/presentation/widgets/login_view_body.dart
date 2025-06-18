@@ -18,7 +18,11 @@ class LoginViewBody extends StatelessWidget {
       listener: (context, state) {
         if (state is LoginSuccess) {
           flutterToast(msg: 'Login successful');
-          Navigator.pushReplacementNamed(context, HomeView.routeName);
+          Navigator.pushReplacementNamed(
+            context,
+            HomeView.routeName,
+            arguments: state.user,
+          );
         }
         if (state is LoginFailure) {
           flutterToast(msg: state.errorMessage);
