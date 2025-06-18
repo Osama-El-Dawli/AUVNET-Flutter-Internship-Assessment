@@ -1,7 +1,7 @@
 import 'package:auvnet/core/utils/app_assets.dart';
 import 'package:auvnet/core/utils/app_colors.dart';
 import 'package:auvnet/core/utils/app_text_styles.dart';
-import 'package:auvnet/features/home/domain/navigation_bar_item_entity.dart';
+import 'package:auvnet/features/home/domain/entities/navigation_bar_item_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

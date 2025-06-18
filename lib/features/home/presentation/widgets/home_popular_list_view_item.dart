@@ -1,5 +1,5 @@
 import 'package:auvnet/core/utils/app_text_styles.dart';
-import 'package:auvnet/features/home/domain/home_popular_item_entity.dart';
+import 'package:auvnet/features/home/domain/entities/home_popular_item_entity.dart';
 import 'package:flutter/material.dart';
 
 class HomePopularListViewItem extends StatelessWidget {

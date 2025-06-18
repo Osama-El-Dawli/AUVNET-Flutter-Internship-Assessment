@@ -1,5 +1,5 @@
 import 'package:auvnet/core/utils/app_colors.dart';
-import 'package:auvnet/features/home/domain/navigation_bar_item_entity.dart';
+import 'package:auvnet/features/home/domain/entities/navigation_bar_item_entity.dart';
 import 'package:auvnet/features/home/presentation/widgets/navigation_bar_item.dart';
 import 'package:flutter/material.dart';
 

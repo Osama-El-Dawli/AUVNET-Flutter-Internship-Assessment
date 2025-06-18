@@ -1,6 +1,6 @@
 import 'package:auvnet/core/utils/app_assets.dart';
 import 'package:auvnet/core/utils/app_text_styles.dart';
-import 'package:auvnet/features/home/domain/home_service_item_entity.dart';
+import 'package:auvnet/features/home/domain/entities/home_service_item_entity.dart';
 import 'package:auvnet/features/home/presentation/widgets/home_service_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

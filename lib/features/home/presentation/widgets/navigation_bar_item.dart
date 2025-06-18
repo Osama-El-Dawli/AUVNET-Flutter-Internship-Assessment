@@ -1,4 +1,4 @@
-import 'package:auvnet/features/home/domain/navigation_bar_item_entity.dart';
+import 'package:auvnet/features/home/domain/entities/navigation_bar_item_entity.dart';
 import 'package:auvnet/features/home/presentation/widgets/active_nav_icon.dart';
 import 'package:auvnet/features/home/presentation/widgets/inactive_icon_bar.dart';
 import 'package:flutter/material.dart';

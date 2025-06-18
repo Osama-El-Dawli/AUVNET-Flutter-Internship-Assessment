@@ -30,6 +30,10 @@ class Assets {
   /// assets/images/logo.png
   static const String imagesLogo = "assets/images/logo.png";
 
+  /// Assets for imagesMust
+  /// assets/images/must.svg
+  static const String imagesMust = "assets/images/must.svg";
+
   /// Assets for imagesNativeSplash
   /// assets/images/native_splash.png
   static const String imagesNativeSplash = "assets/images/native_splash.png";
