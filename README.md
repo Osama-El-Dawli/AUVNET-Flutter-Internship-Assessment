@@ -7,6 +7,7 @@ A new Flutter project.
 - Used Flutter with Bloc state management. 
 - Used Firebase auth and Firestore.
 - Used supabase for storage
+- Used hive for local storage
 
 # 🔗: Figma Design
 https://www.figma.com/community/file/1516187112598079359/flutter-internship-task
